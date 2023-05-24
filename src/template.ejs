@@ -208,13 +208,13 @@
                 <td><b><%= metricName %></b></td>
 
                 <% if(metric.values.count) { %>
-                  <td class="<%= checkFailed(metric, 'count') %>"><%= metric.values.count.toFixed(2) %></td>
+                  <td class="<%= checkFailed(metric, 'count') %>"><%= metric.values.count %></td>
                 <% } else { %>
                   <td>-</td>
                 <% } %>
 
                 <% if(metric.values.rate) { %>
-                  <td class="<%= checkFailed(metric, 'rate') %>"><%= metric.values.rate.toFixed(2) %></td>
+                  <td class="<%= checkFailed(metric, 'rate') %>"><%= metric.values.rate.toFixed(4) %></td>
                 <% } else { %>
                   <td>-</td>
                 <% } %>
@@ -298,13 +298,13 @@
                 <td><b><%= metricName %></b></td>
 
                 <% if(metric.values.count) { %>
-                  <td class="<%= checkFailed(metric, 'count') %>"><%= metric.values.count.toFixed(2) %></td>
+                  <td class="<%= checkFailed(metric, 'count') %>"><%= metric.values.count %></td>
                 <% } else { %>
                   <td>-</td>
                 <% } %>
 
                 <% if(metric.values.rate) { %>
-                  <td class="<%= checkFailed(metric, 'rate') %>"><%= metric.values.rate.toFixed(2) %></td>
+                  <td class="<%= checkFailed(metric, 'rate') %>"><%= metric.values.rate.toFixed(4) %></td>
                 <% } else { %>
                   <td>-</td>
                 <% } %>
