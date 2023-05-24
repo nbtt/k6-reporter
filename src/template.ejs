@@ -304,7 +304,7 @@
                 <% } %>
 
                 <% if(metric.values.rate) { %>
-                  <td class="<%= checkFailed(metric, 'rate') %>"><%= metric.values.rate.toFixed(4) %></td>
+                  <td class="<%= checkFailed(metric, 'rate') %>"><%= metric.values.rate.toFixed(2) %></td>
                 <% } else { %>
                   <td>-</td>
                 <% } %>
@@ -451,6 +451,26 @@
           <% for(check of data.root_group.checks) { %>
             <tr class="checkDetails <% if(check.fails > 0) { %>failed<% } %>">
               <td width="50%"><%= check.name %></td><td><%= check.passes %></td><td><%= check.fails %></td>
+            </tr>
+          <% } %>
+        </table>     
+
+        <h2>&bull; Other Rates</h2>
+        <table class="pure-table pure-table-horizontal" style="width: 100%">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Rate</th>
+              <th>Passes</th>
+              <th>Failures</th>
+            </tr>
+          </thead>
+          <% for(let otherMetricName in sortedMetrics) {
+              var otherMetric = sortedMetrics[otherMetricName];
+              if (otherMetric.type != 'rate') continue;
+          %>
+            <tr class="checkDetails">
+              <td width="50%"><%= otherMetricName %></td><td><%= (otherMetric.values.rate * 100).toFixed(2) %>%</td><td><%= otherMetric.values.passes %></td><td><%= otherMetric.values.fails %></td>
             </tr>
           <% } %>
         </table>     
